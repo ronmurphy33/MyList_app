@@ -25,4 +25,25 @@ def validate_registration():
         "password": bcrypt.generate_password_hash(request.form['password'])
     }
     session['user_id'] = User.register_user(data)
-    return redirect('/register')
+    return redirect('/dashboard')
+
+@app.route ('/dashboard')
+def show_dashboard():
+    if 'user_id' not in session:
+        return redirect ('/')
+    data = {
+        "user_id": session['user_id']
+    }
+    return render_template("dashboard.html")
+
+@app.route ('/validate_login', methods =['POST'])
+def validate_login ():
+    user = User.validate_email(request.form)
+    if not user:
+        flash ('invalid login credentials', 'login')
+        return redirect ('/')
+    if not bcrypt.check_password_hash(user.password, request.form['password']):
+        flash ('invalid login credentials', 'login')
+        return redirect ('/')
+    session['user_id'] = user.id
+    return redirect ('/dashboard')

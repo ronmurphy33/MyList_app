@@ -14,7 +14,16 @@
             <p><a href="/">Home</a> | <a href="/register">Register</a></p>
         </div>
         <div class="card mt-5 mx-auto w-25 p-3 align-items-center align-content-center rounded-3">
-            <form action="/login" method="POST">
+            <form action="/validate_login" method="POST">
+                {% with messages = get_flashed_messages(category_filter =['login']) %}
+                    {% if messages %}
+                    <div class="text-danger fw-b">
+                        {% for message in messages %}
+                        <P>{{ message }}</P>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                {% endwith %}
                 <h2 class="card-title text-center">Login</h2>
                 <div>
                     <label for="email">Email:</label>

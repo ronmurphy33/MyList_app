@@ -42,3 +42,17 @@ class  User:
             flash('passwords must be an exact match',"register")
             is_valid = False
         return is_valid
+
+    @classmethod
+    def register_user(cls, data):
+        query ="INSERT into users (first_name, last_name, email, password) VALUES (%(first_name)s, %(last_name)s, %(email)s, %(password)s) "
+        results = connectToMySQL(cls.schema).query_db(query,data)
+
+    @classmethod
+    def validate_email(cls,form):
+        query ="SELECT * FROM users WHERE email = %(email)s"
+        results = connectToMySQL(cls.schema).query_db(query,form)
+        if len(results) < 1:
+            return False
+        return cls(results[0])
+
