@@ -21,4 +21,4 @@ def create_list():
         "user_id": session['user_id']
     }
     List.create_list(data)
-    return redirect('/dashboard')
+    return redirect('/create_list.html')

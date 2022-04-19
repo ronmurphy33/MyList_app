@@ -22,7 +22,6 @@ class  User:
         is_valid = True
         query = "SELECT * FROM users WHERE email = %(email)s"
         results = MySQLConnection('mylist').query_db(query, form)
-
         if len(results) >= 1:
             flash ("Email address is already registered", "register")
             is_valid = False
