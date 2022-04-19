@@ -12,7 +12,7 @@ def show_new_list():
         return redirect ('/')
     return render_template("new_list.html")
 
-@app.route ('/create_list', methods=['POST'])
+@app.route ('/new_list', methods=['POST'])
 def create_list():
     if 'user_id' not in session:
         return redirect ('/')
@@ -21,4 +21,6 @@ def create_list():
         "user_id": session['user_id']
     }
     List.create_list(data)
-    return redirect('/create_list.html')
+    return redirect('/dashboard')
+
+@app.route ('/delete_list')

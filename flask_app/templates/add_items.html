@@ -11,11 +11,11 @@
     <div class="d-flex flex-column justify-content-center">
         <div class="d-flex flex-row mt-5 justify-content-around">
             <h1>MyList</h1>
-            <p><a href="/">Home</a> | <a href="/logout">Logout</a></p>
+            <p><a href="/dashboard">Home</a> | <a href="/logout">Logout</a></p>
         </div>
         <div>
             <form action="/fill_list">
-                <h2 class="text-center mb-5" method="post">Create a New List</h2>
+                <h2 class="text-center mb-5" method="post">{{ user.first_name}}'s {{ this_list.list_name}} List</h2>
                 <div class="form text-center">
                 </div>
             </form>
