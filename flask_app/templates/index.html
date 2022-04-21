@@ -13,7 +13,7 @@
             <h1>MyList</h1>
             <p><a href="/register">Register</a></p>
         </div>
-        <div class="card mt-5 mx-auto w-25 p-3 align-items-center align-content-center rounded-3">
+        <div class="card bg-info bg-gradient border-primary mt-5 mx-auto w-25 p-3 align-items-center align-content-center rounded-3">
             <form action="/validate_login" method="POST">
                 {% with messages = get_flashed_messages(category_filter =['login']) %}
                     {% if messages %}
@@ -34,7 +34,7 @@
                     <input type="password" name="password" class="form-control                                                                                                                                                                        mb-3">
                 </div>
                 <div class="col-auto">
-                    <input type="submit" value="Login" class="btn btn-success text-light float-end">
+                    <input type="submit" value="Login" class="btn btn-primary text-light float-end">
                 </div>
                 <p>Not registered? click <a href="/register">here</a> to sign up now!</p>
             </form>

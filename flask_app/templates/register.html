@@ -11,8 +11,9 @@
     <div class="d-flex flex-column justify-content-center">
         <div class="d-flex flex-row mt-5 justify-content-around">
             <h1>MyList</h1>
+            <p><a href="/">Home</a></p>
         </div>
-        <div class="card p-5 d-flex w-50 justify-content-center mx-auto">
+        <div class="card p-5 d-flex w-50 justify-content-center mx-auto card bg-info bg-gradient border-primary">
             <form action="/validate_reg" method="post">
                 {% with messages = get_flashed_messages(category_filter =['register']) %}
                     {% if messages %}
