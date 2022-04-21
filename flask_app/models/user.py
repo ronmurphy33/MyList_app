@@ -45,7 +45,7 @@ class  User:
     @classmethod
     def register_user(cls, data):
         query ="INSERT into users (first_name, last_name, email, password) VALUES (%(first_name)s, %(last_name)s, %(email)s, %(password)s) "
-        results = connectToMySQL(cls.schema).query_db(query,data)
+        return MySQLConnection(cls.schema).query_db(query,data)
 
     @classmethod
     def validate_email(cls,form):

@@ -20,7 +20,16 @@ def create_list():
         "list_name" : request.form['list_name'],
         "user_id": session['user_id']
     }
+    print(data)
     List.create_list(data)
     return redirect('/dashboard')
 
-@app.route ('/delete_list')
+@app.route ('/delete_list/<int:id>')
+def destroy_list(id):
+    if 'user_id' not in session:
+        return redirect ('/')
+    data ={
+        "id": id
+    }
+    List.destroy_list(data)
+    return redirect('/dashboard')
