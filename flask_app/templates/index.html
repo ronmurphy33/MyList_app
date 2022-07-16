@@ -5,17 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"
+    <link rel="stylesheet" href="static/css/style.css">
 </head>
-<body  id="index-background">
-    <!-- flask_app\static\img\groceries-5216715_960_720.jpg -->
+<body  class="index-background">
     <div class="d-flex flex-column justify-content-center">
-        <div class="d-flex flex-row mt-5 justify-content-around">
+        <div class="nav-bar d-flex flex-row justify-content-around align-items-center border-bottom shadow p-3 bg-body rounded" style="--bs-bg-opacity: .3;">
             <h1>MyList</h1>
             <p><a href="/register">Register</a></p>
         </div>
-        <div class="card bg-info bg-gradient border-primary mt-5 mx-auto w-25 p-3 align-items-center align-content-center rounded-3">
-            <form action="/validate_login" method="POST">
+        <main class="main-body flex d-flex flex-row align-items-center justify-content-around">
+            <div> </div>
+            <form class="card bg-light bg-gradient w-25 mt-5 p-3 align-items-center align-content-center rounded-3 shadow p-3 mb-5 bg-body rounded"  style="--bs-bg-opacity: .3;" action="/validate_login" method="POST">
                 {% with messages = get_flashed_messages(category_filter =['login']) %}
                     {% if messages %}
                     <div class="text-danger fw-b">
@@ -37,9 +37,9 @@
                 <div class="col-auto">
                     <input type="submit" value="Login" class="btn btn-primary text-light float-end">
                 </div>
-                <p>Not registered? click <a href="/register">here</a> to sign up now!</p>
+                <p>Not registered? <a id ="reg-link"href="/register">Click Here</a> to sign up now!</p>
             </form>
-        </div>
+        </main>
     </div>
 </body>
 </html>

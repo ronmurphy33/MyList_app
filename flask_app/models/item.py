@@ -22,7 +22,7 @@ class Item:
 
     @classmethod
     def get_all_items(cls, data):
-        query = "SELECT * FROM items WHERE list_id = %(id)s"
+        query = "SELECT * FROM items WHERE list_id = %(id)s order by category"
         results = connectToMySQL(cls.schema).query_db(query, data)
         items_all = []
         for item in results:
