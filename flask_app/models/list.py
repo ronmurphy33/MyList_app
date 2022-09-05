@@ -17,7 +17,7 @@ class List:
     
     @classmethod
     def create_list(cls, data):
-        query = "INSERT into lists (list_name, user_id) VALUES (%(list_name)s, %(user_id)s)"
+        query = "INSERT into lists (list_name, user_id, created_at, updated_at) VALUES (%(list_name)s, %(user_id)s, NOW, NOW)"
         results = MySQLConnection(cls.schema).query_db(query, data)
     
     # @classmethod
