@@ -5,7 +5,7 @@ from flask_app.models import list
 import re 
 
 class Item:
-    schema ="mylist"
+    schema ="heroku_f1532e991e8c1e7"
 
     def __init__(self, data):
         self.id = data['id']

@@ -37,7 +37,6 @@ def show_dashboard():
         "user_id": session['user_id']
     }
     logged_in_user = user.User.get_user_by_id(data)
-    print("*****************", List.lists_get_all()[0].user_id)
     return render_template("dashboard.html", user = logged_in_user, lists = List.lists_get_all())
 
 @app.route ('/validate_login', methods =['POST'])

@@ -6,7 +6,7 @@ from asyncio import all_tasks
 
 
 class List:
-    schema ="mylist"
+    schema ="heroku_f1532e991e8c1e7"
 
     def __init__(self, data):
         self.id = data['id']
@@ -17,7 +17,7 @@ class List:
     
     @classmethod
     def create_list(cls, data):
-        query = "INSERT into lists (list_name, user_id, created_at, updated_at) VALUES (%(list_name)s, %(user_id)s, NOW, NOW)"
+        query = "INSERT into lists (list_name, user_id) VALUES (%(list_name)s, %(user_id)s)"
         results = MySQLConnection(cls.schema).query_db(query, data)
     
     # @classmethod
@@ -48,7 +48,7 @@ class List:
     @classmethod
     def lists_get_all(cls):
         query = "SELECT * FROM lists"
-        results = connectToMySQL('mylist').query_db(query)
+        results = connectToMySQL('heroku_f1532e991e8c1e7').query_db(query)
         lists_all = []
         for list in results:
             lists_all.append(cls(list))
